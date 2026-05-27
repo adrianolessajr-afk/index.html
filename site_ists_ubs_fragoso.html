@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ISTs, HIV e Sífilis | USF Sítio Fragoso I</title>
+  <meta name="description" content="Site educativo sobre ISTs com foco em HIV e sífilis, prevenção, testagem e informações da USF Sítio Fragoso I em Paulista-PE." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0b1d33;
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.12);
+      --text: #f4f7fb;
+      --muted: rgba(244,247,251,.78);
+      --accent: #43c6ac;
+      --accent2: #5f8cff;
+      --warning: #ffd166;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 20px 60px rgba(0,0,0,.28);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(95,140,255,.30), transparent 28%),
+        radial-gradient(circle at top right, rgba(67,198,172,.24), transparent 24%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .hero {
+      padding: 56px 0 28px;
+    }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px;
+      background: rgba(255,255,255,.06); backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 14px; border-radius: 999px;
+      background: rgba(255,255,255,.08); border: 1px solid var(--line);
+      color: var(--muted); font-size: .92rem;
+    }
+    .grid-hero {
+      display: grid; grid-template-columns: 1.2fr .8fr; gap: 22px; align-items: stretch;
+    }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+    .hero-copy { padding: 30px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .14em; color: #b7d8ff; font-size: .77rem; font-weight: 800; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      line-height: 1.02; margin: 10px 0 16px;
+      max-width: 11ch;
+    }
+    .lead { color: var(--muted); font-size: 1.06rem; max-width: 62ch; }
+    .cta-row { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding: 12px 18px; border-radius: 14px; text-decoration:none; font-weight:700;
+      border: 1px solid var(--line); transition: transform .18s ease, background .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #04111d; border-color: transparent; }
+    .btn-secondary { background: rgba(255,255,255,.06); color: var(--text); }
+    .hero-side { padding: 22px; display:grid; gap: 14px; }
+    .stat {
+      padding: 18px; border-radius: 18px; background: rgba(255,255,255,.06); border: 1px solid var(--line);
+    }
+    .stat b { display:block; font-size: 1.02rem; margin-bottom: 6px; }
+    .stat p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+    section { padding: 18px 0; }
+    .section-title { font-size: 1.6rem; margin: 0 0 12px; }
+    .section-sub { color: var(--muted); margin: 0 0 18px; }
+    .cards {
+      display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px;
+    }
+    .card {
+      padding: 22px; border-radius: 22px; background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+    }
+    .card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+    .card p, .card li { color: var(--muted); }
+    ul { margin: 0; padding-left: 20px; }
+    li + li { margin-top: 8px; }
+
+    .methods {
+      display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;
+    }
+    .pill {
+      display:inline-flex; padding: 7px 11px; border-radius: 999px;
+      background: rgba(255,255,255,.10); border: 1px solid var(--line);
+      font-size: .84rem; margin-bottom: 10px;
+    }
+    .clinic {
+      display:grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .contact-grid {
+      display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px;
+    }
+    .contact-box {
+      padding: 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid var(--line);
+    }
+    .contact-box small { display:block; color: var(--muted); margin-bottom: 6px; }
+    .contact-box strong { font-size: 1.05rem; }
+    .references { margin-top: 8px; }
+    .references a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); }
+    footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+    }
+    .disclaimer {
+      margin-top: 16px; font-size: .92rem; color: rgba(244,247,251,.74);
+      padding: 14px 16px; border-left: 3px solid var(--warning);
+      background: rgba(255,209,102,.08); border-radius: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .grid-hero, .cards, .methods, .clinic, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 22px; }
+      .hero-copy { padding: 22px; }
+      h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="topbar">
+        <div class="brand">USF Sítio Fragoso I</div>
+        <div class="badge">ISTs • HIV • Sífilis • Prevenção</div>
+      </div>
+
+      <div class="grid-hero">
+        <article class="panel hero-copy">
+          <div class="eyebrow">Informação rápida e confiável</div>
+          <h1>ISTs com foco em HIV e sífilis</h1>
+          <p class="lead">
+            Cuidar da saúde sexual também é cuidar da qualidade de vida. Neste espaço você encontra informações simples e confiáveis sobre HIV e sífilis, formas de prevenção e orientações sobre quando procurar atendimento na USF Sítio Fragoso I.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#prevencao">Ver prevenção</a>
+            <a class="btn btn-secondary" href="#ubs">Dados da UBS</a>
+          </div>
+        </article>
+
+        <aside class="panel hero-side">
+          <div class="stat">
+            <b>HIV</b>
+            <p>O SUS oferece preservativos, testagem, PEP e PrEP como parte da prevenção combinada.</p>
+          </div>
+          <div class="stat">
+            <b>Sífilis</b>
+            <p>Tem tratamento no SUS; a detecção precoce ajuda a interromper a transmissão e evita complicações.</p>
+          </div>
+          <div class="stat">
+            <b>O que fazer</b>
+            <p>Usar camisinha, testar com regularidade e procurar atendimento ao surgirem dúvidas ou sintomas.</p>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="section-title">O que são HIV e sífilis?</h2>
+      <p class="section-sub">Informações importantes para a população de forma clara, acessível e objetiva.</p>
+
+      <div class="cards">
+        <article class="card">
+          <span class="pill">HIV</span>
+          <h3>HIV</h3>
+          <p>
+            O HIV é um vírus que afeta o sistema imunológico. Muitas pessoas podem não apresentar sintomas no início, por isso a testagem é tão importante.
+            Atualmente existem tratamentos eficazes pelo SUS, permitindo que pessoas vivendo com HIV tenham qualidade de vida e acompanhamento adequado.
+          </p>
+        </article>
+        <article class="card">
+          <span class="pill">Sífilis</span>
+          <h3>Sífilis</h3>
+          <p>
+            A sífilis é uma infecção sexualmente transmissível causada por bactéria. Ela pode causar feridas, manchas no corpo e outras complicações quando não tratada.
+            O diagnóstico precoce e o tratamento correto ajudam a evitar transmissão e problemas mais graves.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="prevencao">
+      <h2 class="section-title">Como combater esse problema</h2>
+      <p class="section-sub">Pequenas atitudes podem fazer grande diferença na prevenção das ISTs.</p>
+
+      <div class="methods">
+        <article class="card">
+          <h3>1. Usar preservativo</h3>
+          <p>O uso correto da camisinha ajuda a prevenir HIV, sífilis e outras ISTs em qualquer tipo de relação sexual.</p>
+        </article>
+        <article class="card">
+          <h3>2. Fazer testagem rápida</h3>
+          <p>Os testes rápidos são gratuitos pelo SUS e ajudam no diagnóstico precoce, permitindo iniciar cuidado e tratamento mais cedo.</p>
+        </article>
+        <article class="card">
+          <h3>3. Procurar a UBS</h3>
+          <p>Ao perceber sintomas, dúvidas ou após uma situação de risco, procure atendimento na UBS para orientação adequada.</p>
+        </article>
+        <article class="card">
+          <h3>4. Falar com a parceria</h3>
+          <p>Conversar sobre prevenção e incentivar o cuidado entre parceiros também faz parte da proteção.</p>
+        </article>
+        <article class="card">
+          <h3>5. PEP e PrEP quando indicadas</h3>
+          <p>A PEP e a PrEP são formas modernas de prevenção ao HIV disponibilizadas pelo SUS em situações específicas.</p>
+        </article>
+        <article class="card">
+          <h3>6. Tratar e acompanhar</h3>
+          <p>Seguir corretamente o tratamento e o acompanhamento médico ajuda a proteger a própria saúde e a de outras pessoas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ubs">
+      <h2 class="section-title">USF Sítio Fragoso I</h2>
+      <p class="section-sub">Informações confirmadas em fontes oficiais da Prefeitura de Paulista.</p>
+
+      <div class="clinic">
+        <article class="card">
+          <h3>Endereço</h3>
+          <p>
+            4ª Travessa Agamenon Magalhães, 100<br />
+            Sítio Fragoso, Paulista - PE
+          </p>
+          <p><a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=4%C2%AA%20Travessa%20Agamenon%20Magalh%C3%A3es%2C%20100%2C%20S%C3%ADtio%20Fragoso%2C%20Paulista%20-%20PE" target="_blank" rel="noreferrer">Abrir no mapa</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Atendimento e contato</h3>
+          <div class="contact-grid">
+            <div class="contact-box">
+              <small>Horário informado pela Prefeitura</small>
+              <strong>Segunda a sexta, 8h às 17h</strong>
+            </div>
+            <div class="contact-box">
+              <small>Contato público da Saúde</small>
+              <strong>(81) 3437-2329</strong>
+            </div>
+            <div class="contact-box">
+              <small>Observação</small>
+              <strong>WhatsApp da UBS não constou nas fontes oficiais consultadas</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Referências</h2>
+      <p class="section-sub">Fontes oficiais e confiáveis usadas no conteúdo e nos dados da unidade.</p>
+      <div class="card references">
+        <ul>
+          <li><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/i/ist" target="_blank" rel="noreferrer">Ministério da Saúde — IST</a></li>
+          <li><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/aids-hiv" target="_blank" rel="noreferrer">Ministério da Saúde — HIV/Aids</a></li>
+          <li><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/sifilis" target="_blank" rel="noreferrer">Ministério da Saúde — Sífilis</a></li>
+          <li><a href="https://paulista.pe.gov.br/em-paulista-usf-sitio-fragoso-i-promove-programacao-especial-em-alusao-ao-outubro-rosa/" target="_blank" rel="noreferrer">Prefeitura do Paulista — USF Sítio Fragoso I</a></li>
+          <li><a href="https://paulista.pe.gov.br/elementor-9231/" target="_blank" rel="noreferrer">Prefeitura do Paulista — Telefones úteis</a></li>
+          <li><a href="https://paulista.pe.gov.br/unidades-de-saude-do-paulista-seguem-funcionando-normalmente-nesta-quarta-feira-05/" target="_blank" rel="noreferrer">Prefeitura do Paulista — Unidades de saúde funcionando das 8h às 17h</a></li>
+        </ul>
+      </div>
+      <div class="disclaimer">
+        Este site possui finalidade educativa e informativa. Em caso de sintomas, dúvidas ou necessidade de orientação, procure atendimento profissional na unidade de saúde.
+      </div>
+    </section>
+
+    <footer>
+      Feito para apresentação da USF Sítio Fragoso I — Paulista/PE.
+    </footer>
+  </main>
+</body>
+</html>
